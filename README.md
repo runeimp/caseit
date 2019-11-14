@@ -45,6 +45,7 @@ ToDo:
 * [ ] Add more options to `caseit` command line tool
 * [ ] Add custom delimiter support for input
 * [ ] Add custom delimiter support for output
+* [ ] Add unit tests
 * [ ] <s>Update</s> Create the docs
 * [ ] Update `caseit.Separatem()` to handle things like "ID or other ALL CAPS casing" to maintain the caps when possible
 * [ ] Setup cross-compiling for releases
