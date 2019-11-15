@@ -14,7 +14,7 @@ build:
 # Run CaseIt
 run +args='"Case the words"':
 	@just _term-wipe
-	go run cmd/caseit/main.go {{args}}
+	go run cmd/caseit/main.go "{{args}}"
 
 
 _term-wipe:

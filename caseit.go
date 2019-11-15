@@ -2,9 +2,73 @@ package caseit
 
 import (
 	"fmt"
+	"regexp"
 	"strings"
 	"unicode"
 )
+
+var (
+	spaceRE = regexp.MustCompile(`\s+`)
+	Version = "0.2.0"
+)
+
+// Idea modified from
+// https://github.com/serenize/snaker/blob/master/snaker.go#L102
+var commonInitialismsAndOddballs = map[string]string{
+	"ACL":        "ACL",
+	"API":        "API",
+	"ASCII":      "ASCII",
+	"CIA":        "CIA",
+	"CPU":        "CPU",
+	"CSS":        "CSS",
+	"DNS":        "DNS",
+	"EOF":        "EOF",
+	"ETA":        "ETA",
+	"FBI":        "FBI",
+	"GPU":        "GPU",
+	"GRPC":       "gRPC",
+	"GUID":       "GUID",
+	"GRAPHQL":    "GraphQL",
+	"HTML":       "HTML",
+	"HTTP":       "HTTP",
+	"HTTPS":      "HTTPS",
+	"ID":         "ID",
+	"IP":         "IP",
+	"IRS":        "IRS",
+	"JAVASCRIPT": "JavaScript",
+	"JSON":       "JSON",
+	"LHS":        "LHS",
+	"NSA":        "NSA",
+	"OAUTH":      "OAuth",
+	"OPENID":     "OpenID",
+	"OS":         "OS",
+	"QPS":        "QPS",
+	"RAM":        "RAM",
+	"RHS":        "RHS",
+	"RPC":        "RPC",
+	"SLA":        "SLA",
+	"SMTP":       "SMTP",
+	"SQL":        "SQL",
+	"SSH":        "SSH",
+	"TCP":        "TCP",
+	"TLS":        "TLS",
+	"TTL":        "TTL",
+	"UDP":        "UDP",
+	"UI":         "UI",
+	"UID":        "UID",
+	"URI":        "URI",
+	"URL":        "URL",
+	"UTF8":       "UTF8",
+	"UTF16":      "UTF16",
+	"UTF32":      "UTF32",
+	"UUID":       "UUID",
+	"VM":         "VM",
+	"VR":         "VR",
+	"XML":        "XML",
+	"XMPP":       "XMPP",
+	"XSRF":       "XSRF",
+	"XSS":        "XSS",
+}
 
 func CamelCase(s string) (r string) {
 	r = preprocessString(s)
@@ -103,8 +167,14 @@ func preprocessString(s string) (r string) {
 		p = c
 	}
 
+	return spaceRE.ReplaceAllString(r, " ")
+
 	return r
 }
+
+/*
+MEETS CRITERIA to continue with Diagnostic Evaluation--Sufficient Emotional/Behavioral Needs have been Identified Above
+*/
 
 // Separatem takes p (previous), and c (current) and compares them to determine how to separate them, if necessary.
 func Separatem(p, c rune) (r string) {
@@ -112,9 +182,11 @@ func Separatem(p, c rune) (r string) {
 	// If c is a dot, hyphen, or underscore convert to a space
 	// NOTE: Consider scenarios with other delimiters and where to handle them. Probably not here.
 	switch c {
-	case '.', '-', '_', ' ':
+	case '.', '-', '_', '/', ':', ';', ' ':
 		// fmt.Printf("%q is a delimiter\n", c)
 		r = " "
+	case 0x27, ',':
+		r = ""
 	default:
 		if unicode.IsLetter(p) && unicode.IsLetter(c) {
 			// if unicode.IsLower(p) && unicode.IsUpper(c) || unicode.IsUpper(p) && unicode.IsLower(c) {
@@ -164,7 +236,6 @@ func SpaceLowerCase(s string) (r string) {
 
 func SpaceSmartCase(s string) (r string) {
 	r = preprocessString(s)
-	// r = strings.Title(r)
 	r = "Smart Title Case not yet implemented"
 
 	return r
