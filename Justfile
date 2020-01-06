@@ -12,9 +12,9 @@ build:
 
 
 # Run CaseIt
-run +args='"Case the words"':
+run cmd="word" arg="-s" +args='" ALL CAPS to go thru 1--6 of the 1/2 with the correct CIA ID over GRPC"':
 	@just _term-wipe
-	go run cmd/caseit/main.go "{{args}}"
+	go run cmd/caseit/main.go {{cmd}} {{arg}} {{args}}
 
 
 _term-wipe:
