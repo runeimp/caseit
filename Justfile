@@ -1,8 +1,36 @@
+PROJECT_NAME := "CaseIt"
 
+alias arc := archive
 
 @_default:
 	just _term-wipe
 	just --list
+
+# Archive GoReleaser dist
+archive:
+	#!/bin/sh
+	just _term-wipe
+	tag="$(git tag --points-at master)"
+	app="{{PROJECT_NAME}}"
+	arc="${app}_${tag}"
+
+	# echo "app = '${app}'"
+	# echo "tag = '${tag}'"
+	# echo "arc = '${arc}'"
+	if [ -e dist ]; then
+		echo "Move dist -> distro/${arc}"
+		mv dist "distro/${arc}"
+
+		# echo "cd distro"
+		cd distro
+		
+		printf "pwd = "
+		pwd
+		
+		ls -Alh
+	else
+		echo "dist directory not found for archiving"
+	fi
 
 # Build and install CaseIt
 build:
@@ -12,7 +40,9 @@ build:
 
 # Build distro
 distro:
+	#!/bin/sh
 	goreleaser
+	just archive
 
 
 # Run CaseIt
