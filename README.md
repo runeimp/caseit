@@ -3,7 +3,7 @@ CaseIt
 
 Case conversion library and command line tool written in Go
 
-CLI Tool v1.0.0  
+CLI Tool v1.0.1  
 Library v1.0.0
 
 
