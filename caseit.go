@@ -96,7 +96,7 @@ func capitalizeWord(w string) string {
 	if word, ok := commonInitialismsAndOddballs[upper]; ok == true {
 		return word
 	}
-	word := strings.ToLower(w)
+	word := strings.ToLower(w) // NOTE: I shouldn't force lower after the first letter by default. v2.x should remove this.
 	word = strings.Title(word)
 	return word
 }

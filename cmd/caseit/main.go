@@ -18,7 +18,7 @@ const (
 	AppAbbreviation = "CI"
 	AppVerMajor     = 1
 	AppVerMinor     = 0
-	AppVerPatch     = 0
+	AppVerPatch     = 1
 	AppVerPre       = ""
 	CLIName         = "caseit"
 )
@@ -477,7 +477,7 @@ func main() {
 		} else {
 			fmt.Println("    char*case:")
 			firstWordLower := false
-			rangeAllCase(args.AllCMD, args.AllCMD.Input, ".", firstWordLower)
+			rangeAllCase(args.AllCMD, args.AllCMD.Input, "*", firstWordLower)
 		}
 	}
 

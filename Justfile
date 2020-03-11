@@ -10,6 +10,10 @@ build:
 	go build -o caseit cmd/caseit/main.go
 	mv caseit "${GOBIN}/"
 
+# Build distro
+distro:
+	goreleaser
+
 
 # Run CaseIt
 run cmd="word" arg="-s" +args='" ALL CAPS to go thru 1--6 of the 1/2 with the correct CIA ID over GRPC"':
