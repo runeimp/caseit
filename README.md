@@ -3,7 +3,7 @@ CaseIt
 
 Case conversion library and command line tool written in Go
 
-CLI Tool v1.0.0  
+CLI Tool v1.0.1  
 Library v1.0.0
 
 
@@ -12,12 +12,12 @@ Case Conversions Implemented
 
 ### Word Casing
 
-* lower case -- All words in statement are lower cased.
-* Title Case (simple) -- All words have the first character upper cased. All other letters are left as they were initially.
-* Title Case (forced) -- All letters in a word after the first are lower cased.
-* Title Case (coder) -- Like simple title case but also checks if a word is a common initialism such as gRPC, OAuth, OpenID, etc. and enforces the initialism.
-* Title Case (smart) -- Like simple title case but also lower cases small words such as "a", "the", etc. Uses my [titlecase][] library which is based on [Python Titlecase][].
-* UPPER CASE -- All words upper cased.
+* lower case &ndash; All words in statement are lower cased.
+* Title Case (simple) &ndash; All words have the first character upper cased. All other letters are left as they were initially.
+* Title Case (forced) &ndash; All letters in a word after the first are lower cased.
+* Title Case (coder) &ndash; Like simple title case but also checks if a word is a common initialism such as gRPC, OAuth, OpenID, etc. and enforces the initialism.
+* Title Case (smart) &ndash; Like simple title case but also lower cases small words such as "a", "the", etc. Uses my [titlecase][] library which is based on [Python Titlecase][].
+* UPPER CASE &ndash; All words upper cased.
 
 ### Word Delimiters
 
@@ -25,20 +25,20 @@ Each of the word casing options are then paired with a word separation option
 
 * CamelCase AKA No Delimiter
 	* `lowercase`
-	* `camelCase` -- Initial word is always lower cased.
+	* `camelCase` &ndash; Initial word is always lower cased.
 	* `TitleCase`
 	* `ForcedTitleCase`
 	* `CoderTitleCase`
 	* `SmartTitleCase`
-	* `PascalCase` -- The same a `ForcedTitleCase`
+	* `PascalCase` &ndash; The same a `ForcedTitleCase`
 	* `UPPERCASE`
 * char\*case - Any delimiter for those who simply need _more options_. `*` is the default delimiter if you don't specify one with `-d` or `--delimiter`.
-	* `dot*lower*case`
-	* `Dot*Title*Case`
-	* `Dot*Forced*Title*Case`
-	* `Dot*Coder*Title*Case`
-	* `Dot*Smart*Title*Case`
-	* `DOT*UPPER*CASE`
+	* `char*lower*case`
+	* `Char*Forced*Case`
+	* `Char*Title*Case`
+	* `Char*Coder*Case`
+	* `Char*Smart*Case`
+	* `CHAR*UPPER*CASE`
 * dot.case
 	* `dot.lower.case`
 	* `Dot.Title.Case`
@@ -188,19 +188,19 @@ Pascal: AllCapsToGoThru16OfThe12WithTheCorrectCiaIdOverGrpc
  UPPER: ALLCAPSTOGOTHRU16OFTHE12WITHTHECORRECTCIAIDOVERGRPC
 
     char*case:
- lower: this.oauth.test
- Force: This.Oauth.Test
- Title: This.OAuth.Test
- Coder: This.OAuth.Test
- Smart: This.OAuth.Test
- UPPER: THIS.OAUTH.TEST
+ lower: this*oauth*test
+ Force: This*Oauth*Test
+ Title: This*OAuth*Test
+ Coder: This*OAuth*Test
+ Smart: This*OAuth*Test
+ UPPER: THIS*OAUTH*TEST
 
- lower: all.caps.to.go.thru.1.6.of.the.1.2.with.the.correct.cia.id.over.grpc
- Force: All.Caps.To.Go.Thru.1.6.Of.The.1.2.With.The.Correct.Cia.Id.Over.Grpc
- Title: ALL.CAPS.To.Go.Thru.1.6.Of.The.1.2.With.The.Correct.CIA.ID.Over.GRPC
- Coder: All.Caps.To.Go.Thru.1.6.Of.The.1.2.With.The.Correct.CIA.ID.Over.gRPC
- Smart: ALL.CAPS.to.Go.Thru.1.6.of.the.1.2.with.the.Correct.CIA.ID.Over.GRPC
- UPPER: ALL.CAPS.TO.GO.THRU.1.6.OF.THE.1.2.WITH.THE.CORRECT.CIA.ID.OVER.GRPC
+ lower: all*caps*to*go*thru*1*6*of*the*1*2*with*the*correct*cia*id*over*grpc
+ Force: All*Caps*To*Go*Thru*1*6*Of*The*1*2*With*The*Correct*Cia*Id*Over*Grpc
+ Title: ALL*CAPS*To*Go*Thru*1*6*Of*The*1*2*With*The*Correct*CIA*ID*Over*GRPC
+ Coder: All*Caps*To*Go*Thru*1*6*Of*The*1*2*With*The*Correct*CIA*ID*Over*gRPC
+ Smart: ALL*CAPS*to*Go*Thru*1*6*of*the*1*2*with*the*Correct*CIA*ID*Over*GRPC
+ UPPER: ALL*CAPS*TO*GO*THRU*1*6*OF*THE*1*2*WITH*THE*CORRECT*CIA*ID*OVER*GRPC
 
     dot.case:
  lower: this.oauth.test
@@ -276,7 +276,7 @@ ToDo:
 * [ ] Add unit tests
 * [ ] <s>Update</s> Create the docs
 * [x] Update `caseit.Separatem()` to handle things like "ID or other ALL CAPS casing" to maintain the caps when possible
-* [ ] Setup cross-compiling for releases
+* [x] Setup cross-compiling for releases
 
 
 References
@@ -288,9 +288,9 @@ My main reference in starting this was [Properly Capitalizing a Title][] and a q
 Similar Products
 ----------------
 
-* [strcase by Ian Coleman][] -- Very close to what I did with CaseIt. There are a few features in both that are present in the other.
-* [go-strcase by Adrian Stoewer][] -- This one is fine if you just need `kebab-case`, `snake_case`, `camelCase`, and `PascalCase`.
-* [snaker by Serenize UG] -- This one only handles `snake_case`, `camelCase`, and `PascalCase`. But also is aware of common initialisms and words with odd capitalization usage such as ID and OAuth and inspired my usage of that concept in this app.
+* [strcase by Ian Coleman][] &ndash; Very close to what I did with CaseIt. There are a few features in both that are present in the other.
+* [go-strcase by Adrian Stoewer][] &ndash; This one is fine if you just need `kebab-case`, `snake_case`, `camelCase`, and `PascalCase`.
+* [snaker by Serenize UG] &ndash; This one only handles `snake_case`, `camelCase`, and `PascalCase`. But also is aware of common initialisms and words with odd capitalization usage such as ID and OAuth and inspired my usage of that concept in this app.
 
 
 
