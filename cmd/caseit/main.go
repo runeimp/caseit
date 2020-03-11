@@ -18,7 +18,7 @@ const (
 	AppAbbreviation = "CI"
 	AppVerMajor     = 1
 	AppVerMinor     = 0
-	AppVerPatch     = 1
+	AppVerPatch     = 2
 	AppVerPre       = ""
 	CLIName         = "caseit"
 )
@@ -68,66 +68,66 @@ type (
 		Title  bool     `arg:"-t" help:"Title Case - Words that are all caps are left all caps."`
 		Coder  bool     `arg:"-c" help:"Coder Title Case - Words that are common initialisms are properly cased for the initialism. Otherwise force title cased."`
 		Smart  bool     `arg:"-s" help:"Smart Title Case - Uses code based on Python Titlecase which is smart about small words, etc."`
-		Pascal bool     `arg:"-p" help:"PascalCase - Words in all caps will be forced to initial letter upper and the rest lower. Common in Pascal and for public properties in Go."`
+		Pascal bool     `arg:"-p" help:"PascalCase - Words in all caps will be forced to initial letter upper and the rest lower. Popularized in Pascal and used for public properties in Go."`
 		Upper  bool     `arg:"-u" help:"UPPER CASE - Commonly used for movie titles."`
 	}
 
 	CamelCMD struct {
 		Input  []string `arg:"positional" help:"The input string(s) to process"`
 		All    bool     `arg:"-a" help:"Use all options"`
-		Force  bool     `arg:"-f" help:"Forced TitleNodilCase - Words in all caps will be forced to initial letter upper and the rest lower."`
-		Lower  bool     `arg:"-l" help:"titlenodilcase - Commonly used for environment variables."`
+		Force  bool     `arg:"-f" help:"ForcedTitleCase - Words in all caps will be forced to initial letter upper and the rest lower."`
+		Lower  bool     `arg:"-l" help:"lowercase - Commonly used for environment variables."`
 		Camel  *bool    `arg:"-C" help:"camelCase - Commonly used in Perl, JavaScript, and many other languages for variables and functions. Also for private properties in Go. This is the default."`
-		Title  bool     `arg:"-t" help:"TitleNodilCase - Words that are all caps are left all caps."`
-		Coder  bool     `arg:"-c" help:"Coder TitleNodilCase - Words that are common initialisms are properly cased for the initialism. Otherwise force title cased."`
-		Pascal bool     `arg:"-p" help:"PascalCase - Words in all caps will be forced to initial letter upper and the rest lower. Common in Pascal and for public properties in Go."`
-		Smart  bool     `arg:"-s" help:"Smart TitleNodilCase - Uses code based on Python Titlecase which is smart about small words, etc."`
-		Upper  bool     `arg:"-u" help:"TITLENODILCASE - Commonly used for environment variables."`
+		Title  bool     `arg:"-t" help:"TitleCase - Words that are all caps are left all caps."`
+		Coder  bool     `arg:"-c" help:"CoderTitleCase - Words that are common initialisms are properly cased for the initialism. Otherwise force title cased."`
+		Pascal bool     `arg:"-p" help:"PascalCase - Words in all caps will be forced to initial letter upper and the rest lower. Popularized in Pascal and used for public properties in Go."`
+		Smart  bool     `arg:"-s" help:"SmartTitleCase - Uses code based on Python Titlecase which is smart about small words, etc."`
+		Upper  bool     `arg:"-u" help:"UPPERCASE - Commonly used for environment variables."`
 	}
 
 	DelimitedCMD struct {
 		Input     []string `arg:"positional" help:"The input string(s) to process"`
 		Delimiter string   `arg:"-d" default:"*" help:"The delimiter to use between words`
 		All       bool     `arg:"-a" help:"Use all options"`
-		Force     bool     `arg:"-f" help:"Forced Title*Kebab*Case - Words in all caps will be forced to initial letter upper and the rest lower."`
-		Lower     bool     `arg:"-l" help:"lower*kebab*case - Commonly used for CSS class names and file names on POSIX systems. This is the default."`
-		Title     bool     `arg:"-t" help:"Title*Kebab*Case - Words that are all caps are left all caps."`
-		Coder     bool     `arg:"-c" help:"Coder Title*Kebab*Case - Words that are common initialisms are properly cased for the initialism. Otherwise force title cased."`
-		Smart     bool     `arg:"-s" help:"Smart Title*Kebab*Case - Uses code based on Python Titlecase which is smart about small words, etc."`
-		Upper     bool     `arg:"-u" help:"UPPER*KEBAB*CASE - Commonly used for important file names on POSIX systems?"`
+		Force     bool     `arg:"-f" help:"Forced*Title*Char*Case - Words in all caps will be forced to initial letter upper and the rest lower."`
+		Lower     bool     `arg:"-l" help:"lower*char*case - Commonly used for CSS class names and file names on POSIX systems. This is the default."`
+		Title     bool     `arg:"-t" help:"Title*Char*Case - Words that are all caps are left all caps."`
+		Coder     bool     `arg:"-c" help:"Coder*Title*Char*Case - Words that are common initialisms are properly cased for the initialism. Otherwise force title cased."`
+		Smart     bool     `arg:"-s" help:"Smart*Title*Char*Case - Uses code based on Python Titlecase which is smart about small words, etc."`
+		Upper     bool     `arg:"-u" help:"UPPER*CHAR*CASE - Commonly used for important file names on POSIX systems?"`
 	}
 
 	DotCMD struct {
 		Input []string `arg:"positional" help:"The input string(s) to process"`
 		All   bool     `arg:"-a" help:"Use all options"`
-		Force bool     `arg:"-f" help:"Forced Title.Dot.Case - Words in all caps will be forced to initial letter upper and the rest lower."`
+		Force bool     `arg:"-f" help:"Forced.Title.Dot.Case - Words in all caps will be forced to initial letter upper and the rest lower."`
 		Lower bool     `arg:"-l" help:"lower.dot.case - Commonly to JavaScript and JSON dot notation."`
 		Title bool     `arg:"-t" help:"Title.Dot.Case - Words that are all caps are left all caps."`
-		Coder bool     `arg:"-c" help:"Coder Title.Dot.Case - Words that are common initialisms are properly cased for the initialism. Otherwise force title cased."`
-		Smart bool     `arg:"-s" help:"Smart Title.Dot.Case - Uses code based on Python Titlecase which is smart about small words, etc."`
-		Upper bool     `arg:"-u" help:"UPPER.DOT.CASE - Commonly used for ...?"`
+		Coder bool     `arg:"-c" help:"Coder.Title.Dot.Case - Words that are common initialisms are properly cased for the initialism. Otherwise force title cased."`
+		Smart bool     `arg:"-s" help:"Smart.Title.Dot.Case - Uses code based on Python Titlecase which is smart about small words, etc."`
+		Upper bool     `arg:"-u" help:"UPPER.DOT.CASE - Commonly used for ... well, something I'm sure."`
 	}
 
 	KebabCMD struct {
 		Input []string `arg:"positional" help:"The input string(s) to process"`
 		All   bool     `arg:"-a" help:"Use all options"`
-		Force bool     `arg:"-f" help:"Forced Title-Kebab-Case - Words in all caps will be forced to initial letter upper and the rest lower."`
+		Force bool     `arg:"-f" help:"Forced-Title-Kebab-Case - Words in all caps will be forced to initial letter upper and the rest lower."`
 		Lower bool     `arg:"-l" help:"lower-kebab-case - Commonly used for CSS class names and file names on POSIX systems. This is the default."`
 		Title bool     `arg:"-t" help:"Title-Kebab-Case - Words that are all caps are left all caps."`
-		Coder bool     `arg:"-c" help:"Coder Title-Kebab-Case - Words that are common initialisms are properly cased for the initialism. Otherwise force title cased."`
-		Smart bool     `arg:"-s" help:"Smart Title-Kebab-Case - Uses code based on Python Titlecase which is smart about small words, etc."`
+		Coder bool     `arg:"-c" help:"Coder-Title-Kebab-Case - Words that are common initialisms are properly cased for the initialism. Otherwise force title cased."`
+		Smart bool     `arg:"-s" help:"Smart-Title-Kebab-Case - Uses code based on Python Titlecase which is smart about small words, etc."`
 		Upper bool     `arg:"-u" help:"UPPER-KEBAB-CASE - Commonly used for important file names on POSIX systems?"`
 	}
 
 	SnakeCMD struct {
 		Input []string `arg:"positional" help:"The input string(s) to process"`
 		All   bool     `arg:"-a" help:"Use all options"`
-		Force bool     `arg:"-f" help:"Forced Title_Snake_Case - Words in all caps will be forced to initial letter upper and the rest lower. Commonly used for database names."`
-		Lower bool     `arg:"-l" help:"Python's traditional_snake_case. This is the default."`
+		Force bool     `arg:"-f" help:"Forced_Title_Snake_Case - Words in all caps will be forced to initial letter upper and the rest lower. Commonly used for database names."`
+		Lower bool     `arg:"-l" help:"Python's traditional snake_case. This is the default."`
 		Title bool     `arg:"-t" help:"Title_Snake_Case - Words that are all caps are left all caps. Commonly used for database names."`
-		Coder bool     `arg:"-c" help:"Coder Title_Snake_Case - Words that are common initialisms are properly cased for the initialism. Otherwise force title cased. Commonly used for database names."`
-		Smart bool     `arg:"-s" help:"Smart Title_Snake_Case - Uses code based on Python Titlecase which is smart about small words, etc. Commonly used for database names."`
-		Upper bool     `arg:"-u" help:"UPPER_SNAKE_CASE or CONSTANTS_CASE in many languages."`
+		Coder bool     `arg:"-c" help:"Coder_Title_Snake_Case - Words that are common initialisms are properly cased for the initialism. Otherwise force title cased. Commonly used for database names."`
+		Smart bool     `arg:"-s" help:"Smart_Title_Snake_Case - Uses code based on Python Titlecase which is smart about small words, etc. Commonly used for database names."`
+		Upper bool     `arg:"-u" help:"UPPER_SNAKE_CASE - Commonly used for constants in many languages."`
 	}
 
 	SpaceCMD struct {
@@ -138,13 +138,13 @@ type (
 		Title bool     `arg:"-t" help:"Title Case - Words that are all caps are left all caps."`
 		Coder bool     `arg:"-c" help:"Coder Title Case - Words that are common initialisms are properly cased for the initialism. Otherwise force title cased."`
 		Smart bool     `arg:"-s" help:"Smart Title Case - Uses code based on Python Titlecase which is smart about small words, etc. This is the default."`
-		Upper bool     `arg:"-u" help:"UPPER CASE - Commonly used for movie titles."`
+		Upper bool     `arg:"-u" help:"UPPER CASE - Commonly used for book and movie titles, and company names."`
 	}
 
 	appArgs struct {
 		AllCMD *AllCMD       `arg:"subcommand:all" help:"All commands used"`
 		Camel  *CamelCMD     `arg:"subcommand:camel" help:"Words are not separated by a delimiter"`
-		Char   *DelimitedCMD `arg:"subcommand:char" help:"Character specified separated words"`
+		Char   *DelimitedCMD `arg:"subcommand:char" help:"Character specified word separator"`
 		Dot    *DotCMD       `arg:"subcommand:dot" help:"Dot separated words"`
 		Kebab  *KebabCMD     `arg:"subcommand:kebab" help:"Hyphen separated words"`
 		Snake  *SnakeCMD     `arg:"subcommand:snake" help:"Underscore separated words"`
